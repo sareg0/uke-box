@@ -1,0 +1,37 @@
+Okay fixed it up:
+
+```
+@startuml
+
+class User {
+  String id
+  String name
+  Array known_chords
+  tuneInstrument()
+  --encrypted--
+  String password
+}
+
+class Instrument {
+  String id
+  String name
+  Enum tuning
+}
+
+class Note {
+  String instrument_id
+  Enum audio_frequency
+}
+
+class Tuning {
+  String id
+  Array note_id
+  String type (e.g. gCEA)
+}
+
+Tuning o-- Note
+
+note "These classes are what go into creating the Tuner\n which is a front-end class" as N1
+
+@enduml
+```
