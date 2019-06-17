@@ -16,7 +16,6 @@ class Instrument {
 }
 
 class Note {
-  String instrument_id
   Number audio_frequency
   String name e.g. ("Am7")
 }
@@ -28,7 +27,6 @@ class Tuning {
 }
 
 Tuning o-- Note
-Instrument *-- Tuning
 
 note "These classes are what go into creating the Tuner\n which is a front-end class" as N1
 
