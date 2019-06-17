@@ -1,6 +1,3 @@
-Okay fixed it up:
-
-```
 @startuml
 
 class User {
@@ -15,23 +12,24 @@ class User {
 class Instrument {
   String id
   String name
-  Enum tuning
+  Tuning tuning
 }
 
 class Note {
   String instrument_id
-  Enum audio_frequency
+  Number audio_frequency
+  String name e.g. ("Am7")
 }
 
 class Tuning {
   String id
-  Array note_id
-  String type (e.g. gCEA)
+  { notes: Array.<Note> }
+  String name (e.g. "gCEA")
 }
 
 Tuning o-- Note
+Instrument *-- Tuning
 
 note "These classes are what go into creating the Tuner\n which is a front-end class" as N1
 
 @enduml
-```
