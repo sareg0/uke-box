@@ -1,0 +1,55 @@
+@startuml
+
+class User {
+  String id
+  String name
+  Array known_chordss
+  practiceKnownChords()
+  practiceNewChord()
+  tune()
+  --encrypted--
+  String password
+}
+
+class Instrument {
+  String id
+  String name
+  Enum tuning
+}
+
+class Note {
+  String instrument_id
+  Enum audio_frequency
+}
+
+class KnownChords {
+  String user_id
+  String instrument_type
+  Date updated_at
+  Date created_at
+}
+
+class PracticeSession {
+  String session_type_id
+  Integer score
+  Date created_at
+}
+
+class PracticeSessionTypes {
+  String name
+  String id
+}
+
+class Chord {
+  upFrequency (?)
+  downFrequency (?)
+}
+note bottom: Chord is made up of key,\n string, strum direction\n and fret on ukulele
+
+
+note top: For now, only standard type tuning (gCEA)\n
+
+
+Tuner *-- Note
+
+@enduml
